@@ -20,16 +20,21 @@
 <body>
 
     <div id="app">
+
+        <carList />
+        <h1>{{carName}}</h1>
+
         <form>
-            Car Name: <input type="text" v-model="newCar" @keyup.enter.prevent.stop="insertCar">
-            <button @:click.prevent.stop="insertCar">insert car</button>
+            Car Name: <input type="text" v-model="newCar">
+            <button @click.prevent.stop="insertCar">insert car</button>
 
 
+            <input value="send" type="submit">
         </form>
-        <input value="send" type="submit">
         <ul>
-            <li v-for="car in cars"> {{car.name | captalize}} </li>
+            <li v-for="car in cars"> {{car.name | captalize | myCar}} </li>
         </ul>
+
 
     </div>
 

@@ -1,3 +1,11 @@
+Vue.component(`carList`, {
+  template: `
+    <ul>
+        <li>BMW is Car</li>
+    </ul>
+    `,
+});
+
 const app = new Vue({
   el: "#app",
   data: {
@@ -18,6 +26,17 @@ const app = new Vue({
   filters: {
     captalize: function (value) {
       return value.toUpperCase();
+    },
+
+    myCar: function (value) {
+      return `My car is: ` + value;
+    },
+  },
+  computed: {
+    carName: function () {
+      if (this.newCar.length > 2) {
+        return "my car is : " + this.newCar;
+      }
     },
   },
 });
