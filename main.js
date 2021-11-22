@@ -1,42 +1,29 @@
-Vue.component(`carList`, {
+Vue.component("persons", {
+  props: [`persons`],
   template: `
-    <ul>
-        <li>BMW is Car</li>
-    </ul>
-    `,
+  <ul>
+    <li v-for="person in persons"> {{person.fname}} {{person.lName}}</li>
+  </ul>`,
 });
 
-const app = new Vue({
+const todoVueJs = new Vue({
   el: "#app",
   data: {
-    newCar: "",
-    cars: [
-      { name: `BMW` },
-      { name: `Ford` },
-      { name: `Mercedes` },
-      { name: `Kia` },
+    newFristName: "",
+    newLastName: "",
+    newPerson: {},
+    persons: [
+      { fname: `Abolfazl`, lName: `Saeidabadi` },
+      { fname: `ali`, lName: `Mehrabi` },
+      { fname: `Reza`, lName: `Rezaei` },
+      { fname: `Amir`, lName: `Farhadi` },
     ],
   },
   methods: {
-    insertCar: function () {
-      this.cars.push({ name: this.newCar });
-      this.newCar = "";
-    },
-  },
-  filters: {
-    captalize: function (value) {
-      return value.toUpperCase();
-    },
-
-    myCar: function (value) {
-      return `My car is: ` + value;
-    },
-  },
-  computed: {
-    carName: function () {
-      if (this.newCar.length > 2) {
-        return "my car is : " + this.newCar;
-      }
+    insertNewPerson: function () {
+      this.persons.push({ fname: this.newFristName, lName: this.newLastName });
+      this.newFristName = "";
+      this.newLastName = "";
     },
   },
 });

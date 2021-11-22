@@ -6,36 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .blue {
-            border-color: lightskyblue;
-        }
-
-        .red {
-            border-color: lightcoral;
-        }
-    </style>
 </head>
 
 <body>
 
     <div id="app">
 
-        <carList />
-        <h1>{{carName}}</h1>
+        <form action="">
+            Frist Name: <input type="text" name="" v-model="newFristName" id="">
+            Last Name: <input type="text" name="" v-model="newLastName" id="">
 
-        <form>
-            Car Name: <input type="text" v-model="newCar">
-            <button @click.prevent.stop="insertCar">insert car</button>
-
-
-            <input value="send" type="submit">
+            <button @click.prevent.stop="insertNewPerson">insert Person</button>
         </form>
-        <ul>
-            <li v-for="car in cars"> {{car.name | captalize | myCar}} </li>
-        </ul>
 
-
+        <persons :persons="persons" />
     </div>
 
     <script src="./vue.js"></script>
